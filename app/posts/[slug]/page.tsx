@@ -10,6 +10,7 @@ import { Metadata } from "next";
 import { badgeVariants } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
+import Image from "next/image";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
 
@@ -65,10 +66,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
         <div className="h-96 my-12 md:h-[560px] overflow-hidden flex items-center justify-center border rounded-lg bg-accent/25">
           {/* eslint-disable-next-line */}
-          <img
+          <Image
             className="w-full"
             src={featuredMedia.source_url}
             alt={post.title.rendered}
+            width={featuredMedia.media_details.width}
+            height={featuredMedia.media_details.height}
           />
         </div>
         <Article dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
