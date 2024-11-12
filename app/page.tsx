@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 // Craft Imports
 import { Section, Container } from "@/components/craft";
 import Balancer from "react-wrap-balancer";
@@ -6,7 +7,7 @@ import Balancer from "react-wrap-balancer";
 import Link from "next/link";
 
 // Icons
-import { File, Pen, Tag, Boxes, User, Folder } from "lucide-react";
+import { Star, Pen, Tag, Boxes, User } from "lucide-react";
 
 // This page is using the craft.tsx component and design system
 export default function Home() {
@@ -23,48 +24,41 @@ export default function Home() {
 const ExampleJsx = () => {
   return (
     <article className="prose-m-none">
-      <h1>
-        <Balancer>
-          Hello World, welcome to the Next.js and WordPress Starter by{" "}
-          <a href="https://9d8.dev">9d8</a>.
+      <h1 className="leading-tight text-center">
+        <Balancer className="leading-tight text-center">
+          Welcome to <span className="font-medium dark:text-white">Melder Magnifique</span>, {" "}
+          <br className="sm:hidden" />
+          home of {" "}
+          <br className="sm:hidden" />
+          <span className="font-semibold italic text-yellow-500">The Magnified.</span>
         </Balancer>
       </h1>
-      {/* Vercel Clone Starter */}
-      <a
-        className="h-16 block"
-        href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F9d8dev%2Fnext-wp&env=WORDPRESS_URL,WORDPRESS_HOSTNAME&envDescription=Add%20WordPress%20URL%20with%20Rest%20API%20enabled%20(ie.%20https%3A%2F%2Fwp.example.com)%20abd%20the%20hostname%20for%20Image%20rendering%20in%20Next%20JS%20(ie.%20wp.example.com)&project-name=next-wp&repository-name=next-wp&demo-title=Next%20JS%20and%20WordPress%20Starter&demo-url=https%3A%2F%2Fwp.9d8.dev"
-      >
-        {/* eslint-disable-next-line */}
-        <img
-          className="not-prose my-4"
-          src="https://vercel.com/button"
-          alt="Deploy with Vercel"
-        />
-      </a>
-      <p>
-        This is <a href="https://github.com/9d8dev/next-wp">next-wp</a>, created
-        as a way to build WordPress sites with Next.js at rapid speed. This
-        starter is designed with <a href="https://ui.shadcn.com">shadcn/ui</a>,{" "}
-        <a href="https://github.com/brijr/craft">brijr/craft</a>, and Tailwind
-        CSS. Use <a href="https://components.bridger.to">brijr/components</a> to
-        build your site with prebuilt components. The data fetching and
-        typesafety is handled in <code>lib/WordPress.ts</code> and{" "}
-        <code>lib/WordPress.d.ts</code>. Questions? Email 9d8dev@gmail.com
+      <p className="pb-4 text-lg lg:text-xl">
+        <span className="font-extrabold dark:text-white">Melder Magnifique</span> is your archive of unique insights, tools, and resources, crafted to help you <span className="font-extrabold text-yellow-500">"Meld"</span> life in your own way.
+      </p>
+      <p className="pb-4 text-lg lg:text-xl">
+        From <span className="font-extrabold dark:text-white">self-improvement</span> to <span className="font-extrabold dark:text-white">personal finance</span>, <span className="font-extrabold dark:text-white">health & wellbeing</span>, and <span className="font-extrabold dark:text-white">philosophy</span>, our content empowers you to find <span className="font-extrabold dark:text-white">wisdom</span>, <span className="font-extrabold dark:text-white">knowledge</span>, <span className="font-extrabold dark:text-white">growth</span>, and <span className="font-extrabold dark:text-white">inspiration</span> to shape your path.
+      </p>
+      <p className="pb-4 text-lg lg:text-xl">
+        Whether you're a member of <span className="font-extrabold italic mr-1 text-yellow-500">The Magnified</span> or simply visiting, you'll find ideas and reflections designed for meaningful change and personal transformation.
+      </p>
+      <p className="pb-4 text-lg lg:text-xl">
+        Dive in—and if you're ready, consider becoming part of <span className="font-extrabold italic mr-1 text-yellow-500">The Magnified</span>, {" "}  to connect with a community driven to live with purpose and intention.
       </p>
       <div className="grid md:grid-cols-3 gap-4 mt-6 not-prose">
         <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts"
+          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all dark:text-white text-black dark:hover:text-yellow-500 hover:text-yellow-500"
+          href="/articles"
         >
           <Pen size={32} />
           <span>
-            Posts{" "}
-            <span className="block text-sm text-muted-foreground">
-              All posts from your WordPress
+            <span className="font-semibold text-xl dark:text-white text-black">Articles</span>{" "}
+            <span className="block text-lg text-muted-foreground">
+              View all articles
             </span>
           </span>
         </Link>
-        <Link
+        {/* <Link
           className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
           href="/pages"
         >
@@ -75,55 +69,55 @@ const ExampleJsx = () => {
               Custom pages from your WordPress
             </span>
           </span>
+        </Link> */}
+        <Link
+          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all dark:text-white text-black dark:hover:text-yellow-500 hover:text-yellow-500"
+          href="/"
+        >
+          <Star size={32} />
+          <span>
+            <span className="font-semibold text-xl dark:text-white text-black">Featured Articles</span>{" "}
+            <span className="block text-lg text-muted-foreground">
+              View featured articles
+            </span>
+          </span>
         </Link>
         <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts/authors"
+          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all dark:text-white text-black dark:hover:text-yellow-500 hover:text-yellow-500"
+          href="/articles/authors"
         >
           <User size={32} />
           <span>
-            Authors{" "}
-            <span className="block text-sm text-muted-foreground">
-              List of the authors from your WordPress
+            <span className="font-semibold text-xl dark:text-white text-black">Authors</span>{" "}
+            <span className="block text-lg text-muted-foreground">
+              View articles by author
             </span>
           </span>
         </Link>
         <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts/tags"
-        >
-          <Tag size={32} />
-          <span>
-            Tags{" "}
-            <span className="block text-sm text-muted-foreground">
-              Content by tags from your WordPress
-            </span>
-          </span>
-        </Link>
-        <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts/categories"
+          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all dark:text-white text-black dark:hover:text-yellow-500 hover:text-yellow-500"
+          href="/articles/categories"
         >
           <Boxes size={32} />
           <span>
-            Categories{" "}
-            <span className="block text-sm text-muted-foreground">
-              Categories from your WordPress
+            <span className="font-semibold text-xl dark:text-white text-black">Categories</span>{" "}
+            <span className="block text-lg text-muted-foreground">
+              View articles by category
             </span>
           </span>
         </Link>
-        <a
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="https://github.com/9d8dev/next-wp"
+        <Link
+          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all dark:text-white text-black dark:hover:text-yellow-500 hover:text-yellow-500"
+          href="/articles/tags"
         >
-          <Folder size={32} />
+          <Tag size={32} />
           <span>
-            Documentation{" "}
-            <span className="block text-sm text-muted-foreground">
-              How to use `next-wp`
+            <span className="font-semibold text-xl dark:text-white text-black">Tags</span>{" "}
+            <span className="block text-lg text-muted-foreground">
+              View articles by tag
             </span>
           </span>
-        </a>
+        </Link>
       </div>
     </article>
   );

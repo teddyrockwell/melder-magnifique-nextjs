@@ -41,7 +41,7 @@ export default async function Page({
   return (
     <Section>
       <Container>
-        <h1>Posts</h1>
+        <h1><span className="font-bold dark:text-yellow-500">Articles</span></h1>
         <FilterPosts
           authors={authors}
           tags={tags}
@@ -59,7 +59,7 @@ export default async function Page({
           </div>
         ) : (
           <div className="h-24 w-full border rounded-lg bg-accent/25 flex items-center justify-center">
-            <p>No Results Found</p>
+            <p>No Articles Found</p>
           </div>
         )}
 
@@ -69,15 +69,13 @@ export default async function Page({
               <PaginationItem>
                 <PaginationPrevious
                   className={page === 1 ? "pointer-events-none text-muted" : ""}
-                  href={`/posts?page=${Math.max(page - 1, 1)}${
-                    category ? `&category=${category}` : ""
-                  }${author ? `&author=${author}` : ""}${
-                    tag ? `&tag=${tag}` : ""
-                  }`}
+                  href={`/articles?page=${Math.max(page - 1, 1)}${category ? `&category=${category}` : ""
+                    }${author ? `&author=${author}` : ""}${tag ? `&tag=${tag}` : ""
+                    }`}
                 />
               </PaginationItem>
               <PaginationItem>
-                <PaginationLink href={`/posts?page=${page}`}>
+                <PaginationLink href={`/articles?page=${page}`}>
                   {page}
                 </PaginationLink>
               </PaginationItem>
@@ -86,11 +84,9 @@ export default async function Page({
                   className={
                     page === totalPages ? "pointer-events-none text-muted" : ""
                   }
-                  href={`/posts?page=${Math.min(page + 1, totalPages)}${
-                    category ? `&category=${category}` : ""
-                  }${author ? `&author=${author}` : ""}${
-                    tag ? `&tag=${tag}` : ""
-                  }`}
+                  href={`/articles?page=${Math.min(page + 1, totalPages)}${category ? `&category=${category}` : ""
+                    }${author ? `&author=${author}` : ""}${tag ? `&tag=${tag}` : ""
+                    }`}
                 />
               </PaginationItem>
             </PaginationContent>

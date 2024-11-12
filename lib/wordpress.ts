@@ -77,7 +77,9 @@ export async function getAllCategories(): Promise<Category[]> {
   const url = getUrl('/wp-json/wp/v2/categories');
   const response = await fetchWithAuth(url);
   const categories: Category[] = await response.json();
-  return categories;
+  return categories.filter(
+    (category: any) => category.name !== 'Uncategorized'
+  );
 }
 
 export async function getCategoryById(id: number): Promise<Category> {

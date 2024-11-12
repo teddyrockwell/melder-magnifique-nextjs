@@ -1,28 +1,28 @@
-import { getAllAuthors } from "@/lib/wordpress";
+import { getAllCategories } from "@/lib/wordpress";
 import { Section, Container } from "@/components/craft";
+import { Metadata } from "next";
 import Link from "next/link";
 import BackButton from "@/components/back";
-import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "All Authors",
-    description: "Browse all authors on the site.",
+    title: "All Categories",
+    description: "Browse all categories on the site.",
   };
 }
 
 export default async function Page() {
-  const authors = await getAllAuthors();
+  const categories = await getAllCategories();
 
   return (
     <Section>
       <Container>
         <BackButton />
-        <h2>All Authors</h2>
+        <h2>All Categories</h2>
         <div className="grid">
-          {authors.map((author: any) => (
-            <Link key={author.id} href={`/posts/?author=${author.id}`}>
-              {author.name}
+          {categories.map((category: any) => (
+            <Link key={category.id} href={`/articles/?category=${category.id}`}>
+              {category.name}
             </Link>
           ))}
         </div>

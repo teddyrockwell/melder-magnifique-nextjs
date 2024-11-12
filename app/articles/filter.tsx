@@ -52,27 +52,27 @@ export default function FilterPosts({
     } else {
       newParams.set(type, value);
     }
-    router.push(`/posts?${newParams.toString()}`);
+    router.push(`/articles?${newParams.toString()}`);
   };
 
   const handleResetFilters = () => {
-    router.push("/posts");
+    router.push("/articles");
   };
 
   return (
     <div className="grid md:grid-cols-[1fr_1fr_1fr_0.5fr] gap-2 my-4 !z-10">
       <Select
-        value={selectedTag || "all"}
-        onValueChange={(value) => handleFilterChange("tag", value)}
+        value={selectedAuthor || "all"}
+        onValueChange={(value) => handleFilterChange("author", value)}
       >
         <SelectTrigger>
-          <SelectValue placeholder="All Tags" />
+          <SelectValue placeholder="All Authors" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">All Tags</SelectItem>
-          {tags.map((tag) => (
-            <SelectItem key={tag.id} value={tag.id.toString()}>
-              {tag.name}
+          <SelectItem value="all">All Authors</SelectItem>
+          {authors.map((author) => (
+            <SelectItem key={author.id} value={author.id.toString()}>
+              {author.name}
             </SelectItem>
           ))}
         </SelectContent>
@@ -96,23 +96,23 @@ export default function FilterPosts({
       </Select>
 
       <Select
-        value={selectedAuthor || "all"}
-        onValueChange={(value) => handleFilterChange("author", value)}
+        value={selectedTag || "all"}
+        onValueChange={(value) => handleFilterChange("tag", value)}
       >
         <SelectTrigger>
-          <SelectValue placeholder="All Authors" />
+          <SelectValue placeholder="All Tags" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">All Authors</SelectItem>
-          {authors.map((author) => (
-            <SelectItem key={author.id} value={author.id.toString()}>
-              {author.name}
+          <SelectItem value="all">All Tags</SelectItem>
+          {tags.map((tag) => (
+            <SelectItem key={tag.id} value={tag.id.toString()}>
+              {tag.name}
             </SelectItem>
           ))}
         </SelectContent>
       </Select>
 
-      <Button variant="outline" onClick={handleResetFilters}>
+      <Button variant="outline" onClick={handleResetFilters} className="text-lg font-semibold dark:text-white">
         Reset Filters
       </Button>
     </div>

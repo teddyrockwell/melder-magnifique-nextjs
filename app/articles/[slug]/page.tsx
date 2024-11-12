@@ -53,12 +53,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
             Published {date} by{" "}
             {author.name && (
               <span>
-                <a href={`/posts/?author=${author.id}`}>{author.name}</a>{" "}
+                <a href={`/articles/?author=${author.id}`}>{author.name}</a>{" "}
               </span>
             )}
           </h5>
           <Link
-            href={`/posts/?category=${category.id}`}
+            href={`/articles/?category=${category.id}`}
             className={cn(badgeVariants({ variant: "outline" }), "not-prose")}
           >
             {category.name}
@@ -67,7 +67,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <div className="h-96 my-12 md:h-[560px] overflow-hidden flex items-center justify-center border rounded-lg bg-accent/25">
           {/* eslint-disable-next-line */}
           <Image
-            className="w-full"
+            className="h-full w-full object-contain"
             src={featuredMedia.source_url}
             alt={post.title.rendered}
             width={featuredMedia.media_details.width}

@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
@@ -13,7 +15,12 @@ import { mainMenu, contentMenu } from "@/menu.config";
 import { Section, Container } from "@/components/craft";
 import Balancer from "react-wrap-balancer";
 
-import Logo from "@/public/logo.svg";
+import { Flame } from "lucide-react";
+
+// import Icon from "@/public/icon.svg";
+import IconBlackTrans from "@/public/icon-black-transparent.png";
+import LogoBlackTrans from "@/public/logo-black-transparent.png";
+
 
 import Image from "next/image";
 import Link from "next/link";
@@ -26,10 +33,10 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "WordPress & Next.js Starter by 9d8",
+  title: "Melder Magnifique",
   description:
-    "A starter template for Next.js with WordPress as a headless CMS.",
-  metadataBase: new URL("https://wp.9d8.dev"),
+    "Meld life in your own way.",
+  metadataBase: new URL("https://meldermagnifique.com"),
 };
 
 // Revalidate content every hour
@@ -81,29 +88,34 @@ const Nav = ({ className, children, id }: NavProps) => {
           className="hover:opacity-75 transition-all flex gap-2 items-center"
           href="/"
         >
-          <h2 className="sr-only">next-wp starter</h2>
+          <h2 className="sr-only">Melder Magnifique Icon</h2>
           <Image
-            src={Logo}
-            alt="Logo"
+            src={IconBlackTrans}
+            alt="Melder Magnifique Icon"
             className="dark:invert"
-            width={84}
-            height={30.54}
+            width={60}
+            height={60}
           ></Image>
         </Link>
         {children}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <div className="mx-2 hidden md:flex">
             {Object.entries(mainMenu).map(([key, href]) => (
-              <Button key={href} asChild variant="ghost" size="sm">
-                <Link href={href}>
+              <Button key={href} asChild variant="ghost" className="font-extrabold" size="default">
+                <Link className="text-xl" href={href}>
                   {key.charAt(0).toUpperCase() + key.slice(1)}
                 </Link>
               </Button>
             ))}
           </div>
+
           <Button asChild className="hidden sm:flex">
-            <Link href="https://github.com/9d8dev/next-wp">Get Started</Link>
+            <Link href="/" className="flex items-center content-center justify-center gap-2 text-center align-middle dark:hover:bg-yellow-500 hover:bg-yellow-500">
+              <span className="font-black italic text-lg pt-0.5">Join The Magnified </span>
+              <Flame size={20} strokeWidth={3} absoluteStrokeWidth />
+            </Link>
           </Button>
+          <ThemeToggle />
           <MobileNav />
         </div>
       </div>
@@ -116,26 +128,26 @@ const Footer = () => {
     <footer>
       <Section>
         <Container className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">
-          <div className="flex flex-col gap-6 not-prose">
+          <div className="flex flex-col gap-6 not-prose items-center">
             <Link href="/">
-              <h3 className="sr-only">brijr/components</h3>
+              <h3 className="sr-only">Melder Magnifique Logo</h3>
               <Image
-                src={Logo}
+                src={LogoBlackTrans}
                 alt="Logo"
                 width={120}
-                height={27.27}
-                className="dark:invert hover:opacity-75 transition-all"
+                height={120}
+                className="hover:opacity-75 transition-all dark:invert"
               ></Image>
             </Link>
-            <p>
-              <Balancer>{metadata.description}</Balancer>
+            <p className="text-lg font-medium">
+              <Balancer><span className="font-bold italic text-xl tracking-wide text-yellow-500">"{metadata.description}"</span></Balancer>
             </p>
           </div>
-          <div className="flex flex-col gap-2 text-sm">
-            <h5 className="font-medium text-base">Website</h5>
+          <div className="flex flex-col gap-2 text-xl">
+            <h5 className="font-extrabold text-xl dark:text-yellow-500">Website</h5>
             {Object.entries(mainMenu).map(([key, href]) => (
               <Link
-                className="hover:underline underline-offset-4"
+                className="hover:underline underline-offset-4 dark:text-white font-medium"
                 key={href}
                 href={href}
               >
@@ -143,11 +155,11 @@ const Footer = () => {
               </Link>
             ))}
           </div>
-          <div className="flex flex-col gap-2 text-sm">
-            <h5 className="font-medium text-base">Blog</h5>
+          <div className="flex flex-col gap-2 text-xl">
+            <h5 className="font-extrabold text-xl dark:text-yellow-500">Blog</h5>
             {Object.entries(contentMenu).map(([key, href]) => (
               <Link
-                className="hover:underline underline-offset-4"
+                className="hover:underline underline-offset-4 dark:text-white font-medium"
                 key={href}
                 href={href}
               >
@@ -157,10 +169,9 @@ const Footer = () => {
           </div>
         </Container>
         <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
-          <ThemeToggle />
           <p className="text-muted-foreground">
-            © <a href="https://9d8.dev">9d8</a>. All rights reserved.
-            2024-present.
+            © <a href="https://meldermagnifique.com">Melder Magnifique</a>. All rights reserved.
+            2023-present.
           </p>
         </Container>
       </Section>

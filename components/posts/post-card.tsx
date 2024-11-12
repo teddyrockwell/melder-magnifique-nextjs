@@ -22,7 +22,7 @@ export default async function PostCard({ post }: { post: Post }) {
 
   return (
     <Link
-      href={`/posts/${post.slug}`}
+      href={`/articles/${post.slug}`}
       className={cn(
         "border p-4 bg-accent/30 rounded-lg group flex justify-between flex-col not-prose gap-8",
         "hover:bg-accent/75 transition-all"
@@ -31,7 +31,7 @@ export default async function PostCard({ post }: { post: Post }) {
       <div className="flex flex-col gap-4">
         <div className="h-48 w-full overflow-hidden relative rounded-md border flex items-center justify-center">
           <Image
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain"
             src={media.source_url}
             alt={post.title.rendered}
             width={400}
