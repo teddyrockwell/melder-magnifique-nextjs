@@ -41,7 +41,7 @@ export default async function Page({
   return (
     <Section>
       <Container>
-        <h1><span className="font-bold dark:text-white">Articles</span></h1>
+        <h1><span className="font-black dark:text-white text-yellow-500">Articles</span></h1>
         <FilterPosts
           authors={authors}
           tags={tags}
@@ -58,17 +58,17 @@ export default async function Page({
             ))}
           </div>
         ) : (
-          <div className="h-24 w-full border rounded-lg bg-accent/25 flex items-center justify-center">
-            <p>No Articles Found</p>
+          <div className="h-24 w-full border-2 rounded-lg bg-accent/25 flex items-center justify-center border-black dark:border-white dark:border-opacity-25 border-opacity-50">
+            <p className="font-black text-xl text-black dark:text-white">No Articles Found</p>
           </div>
         )}
 
         <div className="mt-8 not-prose">
           <Pagination>
-            <PaginationContent>
+            <PaginationContent className="flex justify-evenly">
               <PaginationItem>
                 <PaginationPrevious
-                  className={page === 1 ? "pointer-events-none text-muted" : ""}
+                  className={page === 1 ? "pointer-events-none text-muted text-base font-bold" : "text-base font-bold"}
                   href={`/articles?page=${Math.max(page - 1, 1)}${category ? `&category=${category}` : ""
                     }${author ? `&author=${author}` : ""}${tag ? `&tag=${tag}` : ""
                     }`}
@@ -76,13 +76,13 @@ export default async function Page({
               </PaginationItem>
               <PaginationItem>
                 <PaginationLink href={`/articles?page=${page}`}>
-                  {page}
+                  <span className="text-base font-bold">{page}</span>
                 </PaginationLink>
               </PaginationItem>
               <PaginationItem>
                 <PaginationNext
                   className={
-                    page === totalPages ? "pointer-events-none text-muted" : ""
+                    page === totalPages ? "pointer-events-none text-muted text-base font-bold" : "text-base font-bold"
                   }
                   href={`/articles?page=${Math.min(page + 1, totalPages)}${category ? `&category=${category}` : ""
                     }${author ? `&author=${author}` : ""}${tag ? `&tag=${tag}` : ""

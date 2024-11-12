@@ -65,17 +65,17 @@ export default function RootLayout({
 const Footer = () => {
   return (
     <footer>
-      <Section>
-        <Container className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">
+      <Section className="py-0 md:pt-0">
+        <Container className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12 pt-0 sm:pt-0 md:pt-0">
           <div className="flex flex-col gap-6 not-prose items-center">
             <Link href="/">
               <h3 className="sr-only">Melder Magnifique Logo</h3>
               <Image
                 src={LogoBlackTrans}
-                alt="Logo"
-                width={120}
-                height={120}
-                className="hover:opacity-75 transition-all dark:invert"
+                alt="Melder Magnifique Logo"
+                width={128}
+                height={128}
+                className="hover:scale-[1.25] transition-all dark:invert"
               ></Image>
             </Link>
             <p className="text-lg font-medium">
@@ -86,7 +86,7 @@ const Footer = () => {
             <h5 className="font-extrabold text-xl dark:text-yellow-500">Website</h5>
             {Object.entries(mainMenu).map(([key, href]) => (
               <Link
-                className="hover:underline underline-offset-4 dark:text-white font-medium"
+                className="hover:underline underline-offset-4 dark:hover:decoration-yellow-500 hover:decoration-yellow-500 dark:text-white font-medium"
                 key={href}
                 href={href}
               >
@@ -98,7 +98,7 @@ const Footer = () => {
             <h5 className="font-extrabold text-xl dark:text-yellow-500">Blog</h5>
             {Object.entries(contentMenu).map(([key, href]) => (
               <Link
-                className="hover:underline underline-offset-4 dark:text-white font-medium"
+                className="hover:underline dark:hover:decoration-yellow-500 hover:decoration-yellow-500 underline-offset-4 dark:text-white font-medium"
                 key={href}
                 href={href}
               >
@@ -107,8 +107,8 @@ const Footer = () => {
             ))}
           </div>
         </Container>
-        <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
-          <p className="text-muted-foreground">
+        <Container className="border-t border-black border-opacity-25 dark:border-white dark:border-opacity-25 not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
+          <p className="text-black dark:text-white">
             © <a href="https://meldermagnifique.com">Melder Magnifique</a>. All rights reserved.
             2023-present.
           </p>

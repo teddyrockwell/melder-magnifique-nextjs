@@ -27,6 +27,7 @@ export const Nav = ({ className, children, id }: NavProps) => {
         "sticky z-50 top-0 bg-background",
         "border-b",
         "fade-in",
+        "dark:border-white dark:border-opacity-25 border-black border-opacity-25",
         className,
       )}
       id={id}
@@ -59,7 +60,8 @@ export const Nav = ({ className, children, id }: NavProps) => {
                   asChild
                   variant="ghost"
                   className={cn(
-                    "font-extrabold",
+                    "font-extrabold border-2 border-transparent",
+                    "hover:border-2 dark:hover:border-2 dark:hover:border-white dark:hover:border-opacity-25 hover:border-black hover:border-opacity-25",
                     "text-xl",
                     isActive ? "text-yellow-500 hover:text-yellow-500 dark:text-yellow-500" : "text-muted-foreground"
                   )}
@@ -73,14 +75,15 @@ export const Nav = ({ className, children, id }: NavProps) => {
             })}
           </div>
 
-          <Button asChild className="hidden sm:flex">
-            <Link href="/" className="flex items-center content-center justify-center gap-2 text-center align-middle dark:hover:bg-yellow-500 dark:hover:text-white hover:bg-yellow-500">
-              <span className="font-black italic text-lg pt-0.5">Join The Magnified </span>
-              <Flame size={20} strokeWidth={3} absoluteStrokeWidth />
+          <Button asChild variant="outline" className="hidden sm:flex">
+            <Link href="/" className="flex items-center content-center justify-center gap-2 border-2 border-black border-opacity-25 hover:border-2 hover:border-yellow-500 text-center align-middle bg-black text-yellow-500 dark:hover:text-yellow-500 dark:hover:border-2 dark:hover:border-white
+            dark:border-2 dark:hover:bg-black dark:hover:border-opacity-25 dark:bg-yellow-500 dark:border-yellow-500  hover:text-black dark:text-black hover:bg-yellow-500 group">
+              <span className="font-black text-white dark:group-hover:text-white italic text-lg pt-0.5">Join The Magnified </span>
+              <Flame size={20} strokeWidth={2} absoluteStrokeWidth />
             </Link>
           </Button>
-          <ThemeToggle />
           <MobileNav />
+          <ThemeToggle />
         </div>
       </div>
     </nav>

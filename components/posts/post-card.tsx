@@ -24,12 +24,12 @@ export default async function PostCard({ post }: { post: Post }) {
     <Link
       href={`/articles/${post.slug}`}
       className={cn(
-        "border p-4 bg-accent/30 rounded-lg group flex justify-between flex-col not-prose gap-8",
-        "hover:bg-accent/75 transition-all"
+        "border-2 border-black dark:border-white dark:border-opacity-25 border-opacity-25 p-4 hover:bg-accent/5 dark:hover:bg-accent/5 rounded-lg group flex justify-between flex-col not-prose gap-8",
+        "hover:border-opacity-100 dark:hover:border-opacity-100 dark:hover:border-white   transition-all"
       )}
     >
       <div className="flex flex-col gap-4">
-        <div className="h-48 w-full overflow-hidden relative rounded-md border flex items-center justify-center">
+        <div className="h-48 w-full overflow-hidden relative rounded-md border border-black dark:border-white dark:border-opacity-20 border-opacity-20 dark:group-hover:border-opacity-50 group-hover:border-opacity-50 flex items-center justify-center">
           <Image
             className="h-full w-full object-contain"
             src={media.source_url}
@@ -40,10 +40,10 @@ export default async function PostCard({ post }: { post: Post }) {
         </div>
         <div
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-          className="text-xl text-primary font-medium group-hover:underline decoration-muted-foreground underline-offset-4 decoration-dotted transition-all"
+          className="text-lg font-bold group-hover:underline decoration-yellow-500 underline-offset-4 decoration-wavy dark:decoration-white transition-all dark:text-yellow-500 text-black"
         ></div>
         <div
-          className="text-sm"
+          className="text-sm dark:group-hover:text-white group-hover:text-black"
           dangerouslySetInnerHTML={{
             __html:
               post.excerpt.rendered.split(" ").slice(0, 12).join(" ").trim() +
@@ -53,10 +53,11 @@ export default async function PostCard({ post }: { post: Post }) {
       </div>
 
       <div className="flex flex-col gap-4">
-        <hr />
+        <hr className="bg-black bg-opacity-20 dark:group-hover:bg-opacity-50 group-hover:bg-opacity-50 h-0.5  dark:bg-white dark:bg-opacity-20" />
         <div className="flex justify-between items-center text-xs">
-          <p>{category.name}</p>
-          <p>{date}</p>
+          {category.name !== "Uncategorized" ? (<p className="text-black dark:text-white font-bold">{category.name}</p>) : (<p className="text-black dark:text-white font-bold">{""}</p>)
+          }
+          <p className="text-black dark:text-white font-medium">{date}</p>
         </div>
       </div>
     </Link>

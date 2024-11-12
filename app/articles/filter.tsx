@@ -68,7 +68,7 @@ export default function FilterPosts({
         <SelectTrigger>
           <SelectValue placeholder="All Authors" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="font-normal text-black dark:text-white">
           <SelectItem value="all">All Authors</SelectItem>
           {authors.map((author) => (
             <SelectItem key={author.id} value={author.id.toString()}>
@@ -85,7 +85,7 @@ export default function FilterPosts({
         <SelectTrigger>
           <SelectValue placeholder="All Categories" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="font-normal text-black dark:text-white">
           <SelectItem value="all">All Categories</SelectItem>
           {categories.map((category) => (
             <SelectItem key={category.id} value={category.id.toString()}>
@@ -102,7 +102,7 @@ export default function FilterPosts({
         <SelectTrigger>
           <SelectValue placeholder="All Tags" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="font-normal text-black dark:text-white">
           <SelectItem value="all">All Tags</SelectItem>
           {tags.map((tag) => (
             <SelectItem key={tag.id} value={tag.id.toString()}>
@@ -112,7 +112,7 @@ export default function FilterPosts({
         </SelectContent>
       </Select>
 
-      <Button variant="outline" onClick={handleResetFilters} className="text-lg font-semibold dark:text-white">
+      <Button variant="outline" onClick={handleResetFilters} className="text-base text-black font-semibold dark:text-white border-black dark:border-white dark:border-opacity-25 border-opacity-25 border hover:border-black hover:border-opacity-75 dark:hover:border-white dark:hover:border-opacity-100">
         Reset Filters
       </Button>
     </div>
