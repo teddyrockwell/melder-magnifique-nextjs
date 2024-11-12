@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 // Craft Imports
 import { Section, Container } from "@/components/craft";
 import Balancer from "react-wrap-balancer";
@@ -34,16 +33,16 @@ const ExampleJsx = () => {
         </Balancer>
       </h1>
       <p className="pb-4 text-lg lg:text-xl">
-        <span className="font-extrabold dark:text-white">Melder Magnifique</span> is your archive of unique insights, tools, and resources, crafted to help you <span className="font-extrabold text-yellow-500">"Meld"</span> life in your own way.
+        <span className="font-extrabold dark:text-white">Melder Magnifique</span> is your archive of unique insights, tools, and resources, crafted to help you <span className="font-extrabold text-yellow-500">{`${"Meld"}`}</span> life in your own way.
       </p>
       <p className="pb-4 text-lg lg:text-xl">
         From <span className="font-extrabold dark:text-white">self-improvement</span> to <span className="font-extrabold dark:text-white">personal finance</span>, <span className="font-extrabold dark:text-white">health & wellbeing</span>, and <span className="font-extrabold dark:text-white">philosophy</span>, our content empowers you to find <span className="font-extrabold dark:text-white">wisdom</span>, <span className="font-extrabold dark:text-white">knowledge</span>, <span className="font-extrabold dark:text-white">growth</span>, and <span className="font-extrabold dark:text-white">inspiration</span> to shape your path.
       </p>
       <p className="pb-4 text-lg lg:text-xl">
-        Whether you're a member of <span className="font-extrabold italic mr-1 text-yellow-500">The Magnified</span> or simply visiting, you'll find ideas and reflections designed for meaningful change and personal transformation.
+        Whether {`${"you're"}`} a member of <span className="font-extrabold italic mr-1 text-yellow-500">The Magnified</span> or simply visiting, {`${"you'll"}`} find ideas and reflections designed for meaningful change and personal transformation.
       </p>
       <p className="pb-4 text-lg lg:text-xl">
-        Dive in—and if you're ready, consider becoming part of <span className="font-extrabold italic mr-1 text-yellow-500">The Magnified</span>, {" "}  to connect with a community driven to live with purpose and intention.
+        Dive in—and if {`${"you're"}`} ready, consider becoming part of <span className="font-extrabold italic mr-1 text-yellow-500">The Magnified</span>, {" "}  to connect with a community driven to live with purpose and intention.
       </p>
       <div className="grid md:grid-cols-3 gap-4 mt-6 not-prose">
         <Link

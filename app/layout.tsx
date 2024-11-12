@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
@@ -140,7 +138,7 @@ const Footer = () => {
               ></Image>
             </Link>
             <p className="text-lg font-medium">
-              <Balancer><span className="font-bold italic text-xl tracking-wide text-yellow-500">"{metadata.description}"</span></Balancer>
+              <Balancer><span className="font-bold italic text-xl tracking-wide text-yellow-500">{`"${metadata.description}"`}</span></Balancer>
             </p>
           </div>
           <div className="flex flex-col gap-2 text-xl">
