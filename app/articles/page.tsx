@@ -41,7 +41,7 @@ export default async function Page({
   return (
     <Section>
       <Container>
-        <h1><span className="font-bold dark:text-yellow-500">Articles</span></h1>
+        <h1><span className="font-bold dark:text-white">Articles</span></h1>
         <FilterPosts
           authors={authors}
           tags={tags}

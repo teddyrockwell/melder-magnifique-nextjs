@@ -74,7 +74,7 @@ export const Nav = ({ className, children, id }: NavProps) => {
           </div>
 
           <Button asChild className="hidden sm:flex">
-            <Link href="/" className="flex items-center content-center justify-center gap-2 text-center align-middle dark:hover:bg-yellow-500 hover:bg-yellow-500">
+            <Link href="/" className="flex items-center content-center justify-center gap-2 text-center align-middle dark:hover:bg-yellow-500 dark:hover:text-white hover:bg-yellow-500">
               <span className="font-black italic text-lg pt-0.5">Join The Magnified </span>
               <Flame size={20} strokeWidth={3} absoluteStrokeWidth />
             </Link>
